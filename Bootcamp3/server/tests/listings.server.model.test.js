@@ -21,7 +21,8 @@ var listing, id, latitude, longitude;
 listing =  {
   code: "LBWEST", 
   name: "Library West", 
-  address: "1545 W University Ave, Gainesville, FL 32603, United States"
+  address: "1545 W University Ave, Gainesville, FL 32603, United States",
+  coordinates: {longitude: 1, latitude: 1}
 }
 
 describe('Listing Schema Unit Tests', function() {
@@ -71,6 +72,14 @@ describe('Listing Schema Unit Tests', function() {
     it('throws an error when code not provided', function(done){
       new Listing({
         name: listing.name
+      }).save(function(err){
+        should.exist(err);
+        done();
+      })
+    });
+
+    it('throws an error when code and name is not provided', function(done){
+      new Listing({
       }).save(function(err){
         should.exist(err);
         done();

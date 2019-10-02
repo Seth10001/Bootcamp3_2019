@@ -55,6 +55,7 @@ describe('Listings CRUD tests', function() {
       name: 'Introduction to Software Engineering', 
       address: '432 Newell Dr, Gainesville, FL 32611'
     };
+    
     agent.post('/api/listings')
       .send(listing)
       .expect(200)
